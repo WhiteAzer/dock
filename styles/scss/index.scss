@@ -1,0 +1,503 @@
+@import "fonts";
+@import "reset";
+@import "mixins";
+@import "vars";
+@import "global";
+
+.header {
+    border-bottom: 1px solid transparentize($descColor, 0.3);
+    font-size: 16px;
+    line-height: 20px;
+
+    &__inner {
+        @include flex;
+        justify-content: flex-start;
+        padding-top: 20px;
+        padding-bottom: 25px;
+    }
+
+    &__logo {
+        margin-right: 32px;
+    }
+
+    &__menu {
+        width: 100%;
+        @include flex;
+
+        &-list {
+            list-style: none;
+            @include flex;
+        }
+
+        &-item {
+            margin-right: 32px;
+
+            &:not(:first-child) {
+                color: opacify($descColor, 0.2);
+            }
+
+            &:nth-child(2) {
+                position: relative;
+            }
+        }
+
+        &-arrow {
+            transition: all .5s;
+        }
+
+    }
+
+    .drop-menu {
+        width: 200px;
+        padding: 0 20px;
+        position: absolute;
+        border: 1px solid transparentize($descColor, 0.3);
+        border-top: none;
+        background-color: #FFFFFF;
+        top: 54px;
+        transform: translateY(-10%);
+        transition: all .5s;
+        opacity: 0;
+        z-index: -5;
+
+        &__list {
+            list-style: none;
+        }
+
+        &__item {
+            padding-bottom: 10px;
+        }
+    }
+
+    .is-open {
+        opacity: 1;
+        transform: translateY(0);
+        z-index: 20;
+    }
+
+    .rotate {
+        transform: rotate(180deg);
+    }
+
+    .solutions {
+        cursor: pointer;
+    }
+
+    &__login {
+        border: none;
+        background: transparent;
+        color: opacify($descColor, 0.2);
+        margin-right: 16px;
+        cursor: pointer;
+    }
+
+    &__singin {
+        padding: 10px 24px;
+        color: $blue;
+        background-color: $opacifyBlue;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .menu-burger {
+        box-sizing: content-box;
+        width: 40px;
+        display: none;
+        margin-left: auto;
+        margin-right: 5px;
+        cursor: pointer;
+        padding: 5px;
+        z-index: 20;
+
+        span {
+            display: block;
+            border-bottom: 2px solid $fontColor;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            transition: rotate 5s;
+        }
+    }
+}
+
+.home-page {
+    padding-top: 40px;
+
+    &__inner {
+        @include flex;
+        margin-bottom: 105px;
+    }
+
+    &__card {
+        &-title {
+            font-weight: 400;
+            max-width: 380px;
+            font-size: 50px;
+            line-height: 50px;
+            padding-bottom: 20px;
+        }
+
+        &-text {
+            line-height: 27px;
+            color: $descColor;
+            padding-bottom: 20px;
+        }
+    }
+
+    &__title {
+        @include title;
+    }
+
+    &__text {
+        @include subtitle;
+    }
+}
+
+.where-to-go {
+    color: #FFFFFF;
+    margin-bottom: 25px;
+
+    &__inner {
+        background-color: $blue;
+        border-radius: 16px;
+        @include flex;
+        padding: 80px 23px 80px 45px;
+    }
+
+    &__card {
+        max-width: 355px;
+    }
+
+    &__title {
+        @include block__title;
+    }
+
+    &__text {
+        color: #E8F1FF;
+        @include text;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            margin-top: 45px;
+            margin-bottom: 20px;
+            border: 1px solid $lightBlue;
+        }
+    }
+
+    &__description {
+        margin-bottom: 15px;
+        color: #E8F1FF;
+        @include text;
+    }
+}
+
+.navigate {
+    margin-bottom: 25px;
+
+    &__inner {
+        background-color: rgba(241, 245, 255, 0.5);
+        border-radius: 16px;
+        @include flex;
+        flex-direction: row-reverse;
+        padding: 80px 45px 80px 23px;
+    }
+
+    &__card {
+        max-width: 355px;
+    }
+
+    &__title {
+        @include block__title;
+    }
+
+    &__text {
+        color: rgba(18, 23, 34, 0.7);
+        @include text;
+    }
+}
+
+.personalization-feedback {
+    margin-bottom: 80px;
+    font-size: 24px;
+    line-height: 30px;
+
+    &__inner {
+        @include flex;
+    }
+
+    .personalization {
+        @include card(rgba(255, 244, 245, 0.5));
+
+        &__title {
+            font-weight: 400;
+        }
+
+        &__text {
+            @include card__text;
+        }
+    }
+
+    .feedback {
+        @include card(rgba(255, 246, 228, 0.5));
+
+        &__title {
+            font-weight: 400;
+        }
+
+        &__text {
+            @include card__text;
+            margin-bottom: 40px;
+        }
+
+        &__img {
+            position: relative;
+            top: 115px
+        }
+    }
+}
+
+.uplevel {
+    &__title {
+        @include title;
+        max-width: 740px;
+    }
+
+    &__text {
+        @include subtitle;
+    }
+
+    &__inner {
+        margin-bottom: 25px;
+        background-color: $fontColor;
+        border-radius: 16px;
+        @include flex;
+        padding: 80px 23px 80px 45px;
+    }
+
+    &__card {
+        max-width: 300px;
+    }
+
+    &__card-title {
+        color: #FFFFFF;
+        @include block__title;
+    }
+
+    &__card-text {
+        color: #B9C0D5;
+        @include text;
+    }
+}
+
+.save-move {
+    margin-bottom: 25px;
+    font-size: 24px;
+    line-height: 30px;
+
+    &__inner {
+        @include flex;
+    }
+
+    .save {
+        @include card(rgba(241, 245, 255, 0.5));
+
+        &__title {
+            font-weight: 400;
+        }
+
+        &__text {
+            @include card__text;
+            margin-top: 10px;
+            margin-bottom: 35px;
+        }
+    }
+
+    .move {
+        @include card(rgba(241, 245, 255, 0.5));
+
+        &__title {
+            font-weight: 400;
+        }
+
+        &__text {
+            @include card__text;
+            margin-top: 10px;
+            margin-bottom: 35px;
+        }
+    }
+}
+
+.discover {
+
+    &__inner {
+        border-radius: 16px;
+        padding: 80px;
+        background-color: rgba(241, 245, 255, 0.5);
+        @include flex;
+        align-items: start;
+        margin-bottom: 115px;
+    }
+
+    &__left {
+        max-width: 325px;
+    }
+
+    &__title {
+        @include block__title;
+    }
+
+    &__text {
+        line-height: 29px;
+        color: rgba(18, 23, 34, 0.7);
+    }
+
+    &__card {
+        max-width: 345px;
+        background-color: $blue;
+        border-radius: 16px;
+        padding: 32px;
+        padding-right: 40px;
+        color: #FFFFFF;
+        height: 430px;
+
+        &-img {
+            margin-bottom: 32px;
+        }
+
+        &-description {
+            font-size: 13px;
+            line-height: 20px;
+            font-weight: 400;
+            margin-bottom: 2px;
+        }
+
+        &-title {
+            font-weight: normal;
+            font-size: 32px;
+            line-height: 36px;
+            margin-bottom: 13px;
+        }
+
+        &-text {
+            font-size: 18px;
+            line-height: 24px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+        }
+
+        &-link {
+            font-size: 16px;
+            line-height: 26px;
+
+            &:hover {
+                color: #FFFFFF;
+            }
+        }
+    }
+}
+
+.explore {
+    &__title {
+        @include title;
+    }
+
+    &__text {
+        @include subtitle;
+        padding-bottom: 15px;
+    }
+
+    &__btn {
+        display: block;
+        margin: auto;
+        background-color: rgba(64, 140, 255, 0.1);
+        color: $blue;
+        padding: 15px 25px;
+        font-weight: 400;
+        margin-bottom: 50px;
+    }
+
+    &__cards {
+        @include flex;
+        flex-wrap: wrap;
+        max-width: 770px;
+        margin: auto;
+        margin-bottom: 55px;
+    }
+
+    &__card {
+        &-img {
+            margin-bottom: 8px;
+            border-radius: 8px;
+        }
+
+        &-text {
+            font-size: 13px;
+            line-height: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: rgba(18, 23, 34, 0.46);
+        }
+
+        &-title {
+            line-height: 27px;
+            font-weight: 400;
+            padding-bottom: 25px;
+        }
+    }
+}
+
+.get-started {
+    background-color: $blue;
+    border-radius: 16px;
+    color: #FFFFFF;
+    padding: 125px;
+    margin-bottom: 80px;
+
+    &__title {
+        font-weight: 400;
+        font-size: 34px;
+        line-height: 38px;
+        text-align: center;
+        margin-bottom: 18px;
+    }
+
+    &__btn {
+        color: $blue;
+        background-color: #FFFFFF;
+        display: block;
+        margin: auto;
+    }
+}
+
+.footer {
+    @include flex;
+    align-items: flex-start;
+    padding-bottom: 75px;
+
+    &__logo {
+        width: 115px;
+        margin-bottom: 8px;
+
+        &-description {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 19px;
+            color: rgba(18, 23, 34, 0.7);
+        }
+    }
+
+    &__list {
+        list-style: none;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+
+        &-item {
+            margin-bottom: 8px;
+        }
+    }
+}
+
+@import "media";
